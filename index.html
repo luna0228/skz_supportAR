@@ -33,22 +33,34 @@
     <a-scene vr-mode-ui="enabled: false" loading-screen="enabled: false;"
         arjs='sourceType: webcam; debugUIEnabled: false;' id="scene" embedded gesture-detector>
         <a-assets>
-
             <video id="vid" src="assets/minnie.mp4" preload="auto" response-type="arraybuffer" loop crossorigin
                 webkit-playsinline autoplay muted playsinline></video>
+            <video id="vid" src="assets/channie.mp4" preload="auto" response-type="arraybuffer" loop crossorigin
+                webkit-playsinline autoplay muted playsinline></video>
             <a-asset-item id="heart01" src="assets/heart.gltf"></a-asset-item>
-            <a-asset-item id="heart02" src="assets/heart.gltf"></a-asset-item>
         </a-assets>
 
-        <a-marker type="pattern" preset="custom" url="assets/marker.patt" videohandler smooth="true" smoothCount="10"
-            smoothTolerance="0.01" smoothThreshold="5" raycaster="objects: .clickable" emitevents="true"
-            cursor="fuse: false; rayOrigin: mouse;" id="markerA">
+        <a-marker type="pattern" preset="custom" url="assets/minnie_marker.patt" videohandler smooth="true"
+            smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" raycaster="objects: .clickable"
+            emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="markerA">
             <a-video src="#vid" width="2.2" height="4" scale="1 1 1" position="0 0.1 0" rotation="-90 0 0"
                 class="clickable" gesture-handler></a-video>
-            <a-entity id="bowser-model" scale="0.003 0.003 0.003" position="1.5 1 -1" rotation="-90 -25 0"
+            <a-entity id="bowser-model01" scale="0.003 0.003 0.003" position="1.5 1 -1" rotation="-90 -25 0"
                 animation-mixer="loop: repeat" gltf-model="#heart01" class="clickable" gesture-handler></a-entity>
-            <a-entity id="bowser-model" scale="0.003 0.003 0.003" position="-1 1 2" rotation="-90 25 0"
-                animation-mixer="loop: repeat" gltf-model="#heart02" class="clickable" gesture-handler></a-entity>
+            <a-entity id="bowser-model02" scale="0.003 0.003 0.003" position="-1 1 2" rotation="-90 25 0"
+                animation-mixer="loop: repeat" gltf-model="#heart01" class="clickable" gesture-handler></a-entity>
+        </a-marker>
+
+
+        <a-marker type="pattern" preset="custom" url="assets/channie_marker.patt" videohandler smooth="true"
+            smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" raycaster="objects: .clickable"
+            emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="markerB">
+            <a-video src="#vid" width="2.2" height="4" scale="1 1 1" position="0 0.1 0" rotation="-90 0 0"
+                class="clickable" gesture-handler></a-video>
+            <a-entity id="bowser-model03" scale="0.003 0.003 0.003" position="-1.5 1 1" rotation="-90 25 0"
+                animation-mixer="loop: repeat" gltf-model="#heart01" class="clickable" gesture-handler></a-entity>
+            <a-entity id="bowser-model04" scale="0.003 0.003 0.003" position="1 1 -2" rotation="-90 -25 0"
+                animation-mixer="loop: repeat" gltf-model="#heart01" class="clickable" gesture-handler></a-entity>
         </a-marker>
 
         <a-entity camera></a-entity>
