@@ -11,6 +11,10 @@
         src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
     <script>
         AFRAME.registerComponent('videohandler', {
+            // define a variable in which we will keep the video element
+            schema: {
+                video: { type: 'selector' },
+            },
             init: function () {
                 var marker = this.el;
                 this.vid = document.querySelectorAll('.skzvideo');
@@ -25,13 +29,13 @@
                     }
                 }.bind(this));
 
-                marker.addEventListener('markerLost', function () {
-                    this.toggle = false;
-                    // this.vid.pause();
-                    for (let i = 0; i < this.vid.length; i++) {
-                        this.vid[i].pause() // or this.vid[i].pause()
-                    }
-                }.bind(this));
+                // marker.addEventListener('markerLost', function () {
+                //     this.toggle = false;
+                //     // this.vid.pause();
+                //     for (let i = 0; i < this.vid.length; i++) {
+                //         this.vid[i].pause() // or this.vid[i].pause()
+                //     }
+                // }.bind(this));
             },
         });
 
