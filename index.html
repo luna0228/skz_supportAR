@@ -1,95 +1,18 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-    <script
-        src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
-    <script
-        src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
-    <script>
-        AFRAME.registerComponent('videohandler', {
-            // define a variable in which we will keep the video element
-            schema: {
-                video: { type: 'selector' },
-            },
-            init: function () {
-                var marker = this.el;
-                this.vid = document.querySelectorAll('.skzvideo');
-
-
-                marker.addEventListener('markerFound', function () {
-                    console.log('這是：' + marker, +'and' + this)
-                    this.toggle = true;
-                    // this.vid.play();
-                    for (let i = 0; i < this.vid.length; i++) {
-                        this.vid[i].play() // or this.vid[i].pause()
-                    }
-                }.bind(this));
-
-                // marker.addEventListener('markerLost', function () {
-                //     this.toggle = false;
-                //     // this.vid.pause();
-                //     for (let i = 0; i < this.vid.length; i++) {
-                //         this.vid[i].pause() // or this.vid[i].pause()
-                //     }
-                // }.bind(this));
-            },
-        });
-
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 
-<body style="margin: 0; overflow: hidden;">
-    <a-scene vr-mode-ui="enabled: false" loading-screen="enabled: false;" renderer="logarithmicDepthBuffer: true;"
-        arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;' id="scene" embedded gesture-detector>
-        <a-assets>
-            <video id="vid01" class="skzvideo" src="assets/minnie.mp4" preload="auto" response-type="arraybuffer" loop
-                crossorigin webkit-playsinline autoplay muted playsinline></video>
-            <video id="vid02" class="skzvideo" src="assets/channie.mp4" preload="auto" response-type="arraybuffer" loop
-                crossorigin webkit-playsinline autoplay muted playsinline></video>
-            <video id="vid03" class="skzvideo" src="assets/skz.mp4" preload="auto" response-type="arraybuffer" loop
-                crossorigin webkit-playsinline autoplay muted playsinline></video>
-            <a-asset-item id="heart01" src="assets/heart.gltf"></a-asset-item>
-            <a-asset-item id="light_stick" src="assets/light_stick.gltf"></a-asset-item>
-        </a-assets>
-
-        <a-marker type="pattern" preset="custom" url="assets/minnie_marker.patt" videohandler smooth="true"
-            smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" raycaster="objects: .clickable"
-            emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="markerA">
-            <a-video src="#vid01" width="2.2" height="4" scale="1 1 1" position="0 0.1 0" rotation="-90 0 0"
-                class="clickable" gesture-handler></a-video>
-            <a-entity id="bowser-model01" scale="0.003 0.003 0.003" position="1.2 1 -1" rotation="-90 -25 0"
-                animation-mixer="loop: repeat" gltf-model="#heart01" class="clickable" gesture-handler></a-entity>
-            <a-entity id="bowser-model02" scale="0.003 0.003 0.003" position="-1 1 2" rotation="-90 25 0"
-                animation-mixer="loop: repeat" gltf-model="#heart01" class="clickable" gesture-handler></a-entity>
-        </a-marker>
-
-
-        <a-marker type="pattern" preset="custom" url="assets/channie_marker.patt" videohandler smooth="true"
-            smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" raycaster="objects: .clickable"
-            emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="markerB">
-            <a-video src="#vid02" width="2.2" height="4" scale="1 1 1" position="0 0.1 0" rotation="-90 0 0"
-                class="clickable" gesture-handler></a-video>
-            <a-entity id="bowser-model03" scale="0.003 0.003 0.003" position="-1.2 1 -1" rotation="-90 25 0"
-                animation-mixer="loop: repeat" gltf-model="#heart01" class="clickable" gesture-handler></a-entity>
-            <a-entity id="bowser-model04" scale="0.003 0.003 0.003" position="1 1 2" rotation="-90 -25 0"
-                animation-mixer="loop: repeat" gltf-model="#heart01" class="clickable" gesture-handler></a-entity>
-        </a-marker>
-
-        <a-marker type="pattern" preset="custom" url="assets/test01.patt" videohandler smooth="true" smoothCount="10"
-            smoothTolerance="0.01" smoothThreshold="5" raycaster="objects: .clickable" emitevents="true"
-            cursor="fuse: false; rayOrigin: mouse;" id="markerC">
-            <a-video src="#vid03" width="2.2" height="4" scale="1 1 1" position="0 0.1 0" rotation="-90 0 0"
-                class="clickable" gesture-handler></a-video>
-            <a-entity id="bowser-model05" scale="0.3 0.3 0.3" position="1 1 2" rotation="-90 -25 0"
-                animation-mixer="loop: repeat" gltf-model="#light_stick" class="clickable" gesture-handler></a-entity>
-        </a-marker>
-
-        <a-entity camera></a-entity>
-    </a-scene>
+<body>
+    <div>
+        <p>這裡可以用小卡體驗AR喔！</p>
+        <p>請按下方按鈕進入</p>
+        <a href="ar.html" target="_blank">體驗AR小卡</a>
+    </div>
 </body>
 
 </html>
