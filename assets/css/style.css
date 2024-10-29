@@ -52,7 +52,6 @@ h6 {
     position: relative;
     overflow: hidden;
     z-index: 0;
-    padding: 0 20px;
 }
 
 ul,
@@ -98,6 +97,7 @@ button:focus {
     position: relative;
     box-shadow: 0 0 10px rgba(255, 255, 255, .5);
     text-align: center;
+    margin: 0 20px;
 }
 
 .main img.ATE {
@@ -279,6 +279,14 @@ button:focus {
         font-size: 1rem;
     }
 
+    .main .title h2 {
+        font-size: 1.7rem;
+    }
+
+    .step-box {
+        padding: 60px 20px 0;
+    }
+
     .step-box .step {
         width: 100%;
         margin-bottom: 20px;
@@ -287,6 +295,10 @@ button:focus {
     .step .image {
         height: auto;
         padding: 40px 0;
+    }
+
+    .step .title {
+        font-size: 1.125rem;
     }
 
 }
