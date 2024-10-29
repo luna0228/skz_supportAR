@@ -87,6 +87,10 @@ button:focus {
     background-color: #131A20;
 }
 
+.top img.bg-mb {
+    display: none;
+}
+
 .main {
     padding: 100px 0 50px;
     max-width: 1200px;
@@ -234,7 +238,7 @@ button:focus {
 .copyright {
     color: #fff;
     text-align: center;
-    padding: 20px 0;
+    padding: 20px;
 }
 
 @media (max-width: 991px) {
@@ -267,9 +271,21 @@ button:focus {
         width: 280px;
         padding: 15px 10px;
     }
+
+    .copyright {
+        font-size: .9rem;
+    }
 }
 
 @media (max-width: 767px) {
+    .top img.bg-mb {
+        display: block;
+    }
+
+    .top img.bg-pc {
+        display: none;
+    }
+
     .main img.ATE {
         width: 240px;
         top: -40px;
